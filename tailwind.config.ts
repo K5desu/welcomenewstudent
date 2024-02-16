@@ -1,5 +1,12 @@
 import type { Config } from "tailwindcss";
-
+type AddUtilitiesFunction = (
+  utilities: Record<string, Record<string, string>>,
+  options?: {
+    variants?: string[];
+    respectPrefix?: boolean;
+    respectImportant?: boolean;
+  }
+) => void;
 const config: Config = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -7,14 +14,19 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-      },
-    },
+    extend: {},
   },
-  plugins: [],
+  plugins: [
+    function ({ addUtilities }: { addUtilities: AddUtilitiesFunction }) {
+      const newUtilities = {
+        ".text-shadow": {
+          textShadow: "3px 3px 3px darkgrey",
+        },
+      };
+
+      addUtilities(newUtilities);
+    },
+  ],
 };
+
 export default config;
