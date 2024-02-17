@@ -20,7 +20,7 @@ export default function RootLayout({
   return (
     <>
       <body className={`${inter.className} antialiased`}>
-        <div className="h-28 bg-white border-b-2 border-#ABABAB flex flex-row justify-between items-center">
+        <div className="fixed left-0 right-0 top-0 h-28 bg-white border-b-2 border-#ABABAB flex flex-row justify-between items-center">
           <div className="text-shadow mb-2 ml-[26px] text-black text-[33.54px]  font-black">
             Horizon
           </div>
