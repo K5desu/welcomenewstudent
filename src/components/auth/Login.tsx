@@ -11,7 +11,11 @@ export default function Login() {
   if (status !== "authenticated") {
     return (
       <div>
-        <button onClick={() => signIn("google", {}, { prompt: "login" })}>
+        <button
+          onClick={() =>
+            signIn("google", { callbackUrl : "/login" }, { prompt: "login" })
+          }
+        >
           ログイン
         </button>
       </div>
