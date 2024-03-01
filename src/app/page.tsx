@@ -28,7 +28,7 @@ export default function Home() {
           <br />
           <br />
           <span className="font-bold text-shadow">
-            ぜひ体験会にきてください!🚀🚙🛫
+            ぜひ体験会にきてください!🚀🌟🛸☽🚙🛫☁🚢🌊
           </span>
         </div>
       </div>
