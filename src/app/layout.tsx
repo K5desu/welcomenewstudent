@@ -5,6 +5,7 @@ import { Inter } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
 import { Metadata } from "next";
+import NextAuthProvider from "@/providers/NextAuth";
 
 export const metadata: Metadata = {
   title: "Horizon",
@@ -63,7 +64,8 @@ export default function RootLayout({
             </Link>
           </div>
         </div>
-        {children}
+        <NextAuthProvider>{children}</NextAuthProvider>
+
         <div className="h-44 border-#ABABAB border-t-2 relative">
           <div className="text-black text-xl ml-6 pt-3 font-extrabold text-shadow flex flex-row justify-between">
             <span>各種連絡先</span>
