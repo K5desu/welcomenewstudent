@@ -12,7 +12,6 @@ export default function Home() {
           基礎を固め自力で学習していく力をつける
         </span>
         <br />
-        <br />
         プログラミングに興味がある…面白そう…というあなた、私たちと一緒に最初の一歩を踏み出しましょう！
         <br />
         <br />
@@ -25,7 +24,21 @@ export default function Home() {
         <span className="font-bold text-shadow text-2lx">
           2023年度基礎班の活動
         </span>
-        
+        <br />
+        <br />
+        ◎5月<br />
+        　・自己紹介サイトの作成
+        <br />
+        <br />
+        ◎6月<br />
+        　・アニメーションやギミック導入の勉強
+        <br />
+        <br />
+        ◎7月<br />
+        　・チーム開発準備
+        <br />
+        <br />
+        ※2024年度の活動内容とは一部変更となる部分があります。
       </div>
       <span className="text-sm text-gray-700 dark:text-gray-200">Horizon</span>
     </div>
