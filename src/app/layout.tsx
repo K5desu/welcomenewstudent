@@ -1,6 +1,6 @@
 import "@/app/globals.css"; // import "@/app/ui/global.css"
 import { Inter } from "next/font/google";
-
+import Image from "next/image";
 import Link from "next/link";
 import { Metadata } from "next";
 export const metadata: Metadata = {
@@ -47,15 +47,44 @@ export default function RootLayout({
           </div>
         </div>
         {children}
-        <div className="h-[164px] border-#ABABAB border-t-2 relative">
+        <div className="h-44 border-#ABABAB border-t-2 relative">
           <div className="text-black text-xl ml-6 pt-3 font-extrabold text-shadow">
             各種連絡先
           </div>
 
-          <div className="absolute top-1/2 flex flex-row justify-between items-center w-screen">
-            <div className="w-[70px] h-[70px]  ml-7 bg-gray-300"></div>
-            <div className="w-[70px] h-[70px]   bg-gray-300"></div>
-            <div className="w-[70px] h-[70px]  mr-7 bg-gray-300"></div>
+          <div className="mt-5 flex flex-row justify-between items-center w-screen">
+            <div className="w-[90px] h-[110px] ml-7 flex justify-center">
+              <Link
+                href="https://line.me/R/ti/p/@777uabzr?oat_content=url"
+                className="h-[110px] flex flex-col items-center text-blue-500 hover:text-purple-900 active:text-purple-900 visited:text-purple-900 "
+              >
+                <h3>[公式LINE]</h3>
+
+                <Image src="/line.png" alt="Line" width={80} height={80} />
+              </Link>
+            </div>
+            <div className="w-[90px] h-[110px] ">
+              {" "}
+              <Link
+                href="https://twitter.com/ryukokuhorizon"
+                className="h-[110px] flex flex-col items-center text-blue-500 hover:text-purple-900 active:text-purple-900 visited:text-purple-900 "
+              >
+                <h3>[公式X]</h3>
+
+                <Image src="/x.png" alt="Line" width={90} height={90} />
+              </Link>
+            </div>
+            <div className="w-[90px] h-[110px]  mr-7 ">
+              {" "}
+              <Link
+                href="https://www.instagram.com/horizon_ryu/"
+                className="h-[110px] flex flex-col items-center text-blue-500 hover:text-purple-900 active:text-purple-900 visited:text-purple-900 "
+              >
+                <h3>[公式Insta]</h3>
+
+                <Image src="/insta.png" alt="Line" width={90} height={90} />
+              </Link>
+            </div>
           </div>
         </div>
       </body>
