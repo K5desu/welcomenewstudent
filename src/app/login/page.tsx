@@ -1,11 +1,12 @@
 import Image from "next/image";
+import { Button } from "@/components/ui/button";
 export default function Home() {
   return (
     <>
-      <div className="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800">
+      <div className="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg dark:bg-gray-800">
         <div className="px-6 py-4">
           <div className="flex justify-center mx-auto">
-            <Image src="/chara.png" height={100} width={100} alt="horizon" />
+            <Image src="/home.png" height={100} width={100} alt="horizon" />
           </div>
 
           <h3 className="mt-3 text-xl font-medium text-center text-gray-600 dark:text-gray-200">
@@ -35,7 +36,9 @@ export default function Home() {
               />
             </div>
 
-            <div className="flex items-center justify-between mt-4"></div>
+            <div className="flex justify-center  mt-4">
+              <Button>submit</Button>
+            </div>
           </form>
         </div>
 
