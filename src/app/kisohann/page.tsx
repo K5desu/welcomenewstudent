@@ -33,7 +33,7 @@ export default function Home() {
           <br />
           <br />
           ◎6月<br />
-          　・アニメーションやギミック導入の勉強
+          　・アニメーションやギミックの導入の勉強
           <br />
           <br />
           ◎7月<br />
