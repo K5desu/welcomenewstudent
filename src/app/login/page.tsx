@@ -37,12 +37,10 @@ export default function Home() {
             </div>
 
             <div className="flex justify-center  mt-4">
-              <Button>submit</Button>
+              <Button>login</Button>
             </div>
           </form>
         </div>
-
-        <div className="flex items-center justify-center py-4 text-center bg-gray-50 dark:bg-gray-700"></div>
       </div>
     </>
   );
