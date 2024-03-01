@@ -58,7 +58,7 @@ export default function RootLayout({
           <div className="text-black text-xl ml-6 pt-3 font-extrabold text-shadow flex flex-row justify-between">
             <span>各種連絡先</span>
             <Button asChild size={"sm"} className="mr-[26px]">
-              <Link href="/login">member`s login</Link>
+              <Link href="/login">関係者の方</Link>
             </Button>
           </div>
 
