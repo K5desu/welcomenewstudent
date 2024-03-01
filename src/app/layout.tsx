@@ -1,4 +1,6 @@
 import "@/app/globals.css"; // import "@/app/ui/global.css"
+import { Button } from "@/components/ui/button";
+
 import { Inter } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
@@ -53,8 +55,11 @@ export default function RootLayout({
         </div>
         {children}
         <div className="h-44 border-#ABABAB border-t-2 relative">
-          <div className="text-black text-xl ml-6 pt-3 font-extrabold text-shadow">
-            各種連絡先
+          <div className="text-black text-xl ml-6 pt-3 font-extrabold text-shadow flex flex-row justify-between">
+            <span>各種連絡先</span>
+            <Button asChild size={"sm"} className="mr-[26px]">
+              <Link href="/login">member`s login</Link>
+            </Button>
           </div>
 
           <div className="mt-5 flex flex-row justify-between items-center w-screen">
