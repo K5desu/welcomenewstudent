@@ -5,6 +5,7 @@ import { Inter } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
 import { Metadata } from "next";
+
 export const metadata: Metadata = {
   title: "Horizon",
   description: "Horizonへの入部を考えているひとに向けて",
@@ -24,10 +25,19 @@ export default function RootLayout({
       <body className={`${inter.className} antialiased`}>
         <div className="h-28"></div>
         <div className="fixed left-0 right-0 top-0 h-28 bg-white border-b-2 border-#ABABAB flex flex-row justify-between items-center">
-          <div className="  ">
+          <div className="flex flex-row items-center">
+            <Link href="/">
+              <Image
+                src="/Horizon.jpg"
+                alt="tosi"
+                width={70}
+                height={70}
+                className="pl-1"
+              />
+            </Link>
             <Link
               href="/"
-              className="text-black  text-[33.54px]  font-black font-black  block text-shadow mb-2 ml-[26px]"
+              className="text-black  text-[30px]  font-black font-black  block text-shadow mb-2 pl-2"
             >
               Horizon
             </Link>
