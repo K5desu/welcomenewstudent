@@ -1,13 +1,13 @@
-import type { Config } from "tailwindcss"
+import type { Config } from "tailwindcss";
 
 const config = {
   darkMode: ["class"],
   content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
-	],
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
+  ],
   prefix: "",
   theme: {
     container: {
@@ -74,7 +74,24 @@ const config = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
-} satisfies Config
+  plugins: [
+    require("tailwindcss-animate"),
+    function ({ addUtilities }: { addUtilities: any }) {
+      const newUtilities = {
+        ".text-shadow": {
+          textShadow: "2px 2px 2px rgba(0, 0, 0, 0.5)",
+        },
+        ".text-shadow-md": {
+          textShadow: "3px 3px 3px rgba(0, 0, 0, 0.5)",
+        },
+        ".text-shadow-lg": {
+          textShadow: "4px 4px 4px rgba(0, 0, 0, 0.5)",
+        },
+      };
 
-export default config
+      addUtilities(newUtilities);
+    },
+  ],
+} satisfies Config;
+
+export default config;
