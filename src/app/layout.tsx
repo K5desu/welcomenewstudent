@@ -23,7 +23,12 @@ export default function RootLayout({
         <div className="h-28"></div>
         <div className="fixed left-0 right-0 top-0 h-28 bg-white border-b-2 border-#ABABAB flex flex-row justify-between items-center">
           <div className="text-shadow mb-2 ml-[26px] text-black text-[33.54px]  font-black">
-            Horizon
+            <Link
+              href="/"
+              className="text-black text-base font-black  block mt-2"
+            >
+              Horizon
+            </Link>
           </div>
           <div className="flex flex-col justify-between w-32 h-24 items-center pr-2">
             <Link
