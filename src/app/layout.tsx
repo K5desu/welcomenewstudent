@@ -57,10 +57,10 @@ export default function RootLayout({
               基礎班について
             </Link>
             <Link
-              href="/event"
+              href="/Q&A"
               className="text-black text-base font-black  block mb-2 "
             >
-              楽しいイベント
+              Q&A一覧
             </Link>
           </div>
         </div>
