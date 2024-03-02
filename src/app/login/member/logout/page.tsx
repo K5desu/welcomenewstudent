@@ -1,17 +1,14 @@
 "use client";
 import { useSession } from "next-auth/react";
-import Login from "@/components/auth/Login";
+import { redirect } from "next/navigation";
+
 import Logout from "@/components/auth/Logout";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 export default function Home() {
-  const router = useRouter();
   const { data: session, status } = useSession();
-  if (status === "authenticated") {
-    router.push("/login/member");
-  }
 
   return (
     <>
@@ -27,14 +24,14 @@ export default function Home() {
             ※Horizonメンバー以外の方はログインできません
           </p>{" "}
           <p className="mt-1 text-center text-gray-500 dark:text-gray-400">
-            メンバー以外の方は{" "}
+            あなたはメンバーではないので{" "}
             <Link href="/" className="text-red-500">
               ホーム
             </Link>
             に戻ってください
           </p>
           <p className="mt-5 font-bold text-gray-500 dark:text-gray-400">
-            メンバーの方はこちらからloginしてください
+            ログインするアカウントを間違えた場合は下記からログアウトしてください
           </p>
           <div className="flex justify-center  mt-4">
             <div>
@@ -43,9 +40,7 @@ export default function Home() {
                   <Logout />
                 </Button>
               ) : (
-                <Button>
-                  <Login />
-                </Button>
+                redirect("/login")
               )}
             </div>
           </div>
