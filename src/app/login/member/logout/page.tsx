@@ -6,7 +6,7 @@ import Logout from "@/components/auth/Logout";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+
 export default function Home() {
   const { data: session, status } = useSession();
 

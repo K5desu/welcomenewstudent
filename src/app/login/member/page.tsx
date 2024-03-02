@@ -3,7 +3,6 @@ import { useRouter } from "next/navigation";
 import Logout from "@/components/auth/Logout";
 import { Button } from "@/components/ui/button";
 import { useSession } from "next-auth/react";
-import { Router } from "lucide-react";
 
 export default function Home() {
   const { data: session, status } = useSession();
