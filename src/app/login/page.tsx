@@ -72,11 +72,10 @@ export default function Home() {
                     </AlertDialogHeader>
                     <AlertDialogFooter>
                       <AlertDialogCancel>Cancel</AlertDialogCancel>
-                      <AlertDialogAction>
-                        <Button>
-                          <Login />
-                        </Button>
-                      </AlertDialogAction>
+
+                      <Button>
+                        <Login />
+                      </Button>
                     </AlertDialogFooter>
                   </AlertDialogContent>
                 </AlertDialog>
