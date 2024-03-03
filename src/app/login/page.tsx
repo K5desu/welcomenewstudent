@@ -46,7 +46,7 @@ export default function Home() {
             </Link>
             に戻ってください
           </p>
-          <p className="mt-5 font-bold text-gray-500 dark:text-gray-400">
+          <p className="mt-5 font-bold text-gray-500 dark:text-gray-400 text-center">
             メンバーの方はこちらからメンバーアカウントでloginしてください
           </p>
           <div className="flex justify-center  mt-4">
