@@ -1,4 +1,5 @@
 "use client";
+
 import { useRouter } from "next/navigation";
 import Logout from "@/components/auth/Logout";
 import { Button } from "@/components/ui/button";

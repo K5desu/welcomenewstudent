@@ -1,5 +1,7 @@
 import "@/app/globals.css"; // import "@/app/ui/global.css"
 import { Button } from "@/components/ui/button";
+import { getDatabase, ref, set, get, update, remove } from "firebase/database";
+import { app } from "@/lib/firebase/firebase";
 
 import { Inter } from "next/font/google";
 import Image from "next/image";
@@ -21,6 +23,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const db = getDatabase(app);
   return (
     <>
       <body className={`${inter.className} antialiased`}>

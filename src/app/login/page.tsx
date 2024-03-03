@@ -3,9 +3,22 @@ import { useSession } from "next-auth/react";
 import Login from "@/components/auth/Login";
 import Logout from "@/components/auth/Logout";
 import Image from "next/image";
+
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
+
 export default function Home() {
   const router = useRouter();
   const { data: session, status } = useSession();
@@ -43,9 +56,30 @@ export default function Home() {
                   <Logout />
                 </Button>
               ) : (
-                <Button>
-                  <Login />
-                </Button>
+                <AlertDialog>
+                  <AlertDialogTrigger asChild>
+                    <Button variant="outline">Login</Button>
+                  </AlertDialogTrigger>
+                  <AlertDialogContent>
+                    <AlertDialogHeader>
+                      <AlertDialogTitle>
+                        あなたはHorizonmemberですか？
+                      </AlertDialogTitle>
+                      <AlertDialogDescription>
+                        このページはホライズンメンバーのみ入ることができます
+                        ホライズンメンバーの方はログインを押してください
+                      </AlertDialogDescription>
+                    </AlertDialogHeader>
+                    <AlertDialogFooter>
+                      <AlertDialogCancel>Cancel</AlertDialogCancel>
+                      <AlertDialogAction>
+                        <Button>
+                          <Login />
+                        </Button>
+                      </AlertDialogAction>
+                    </AlertDialogFooter>
+                  </AlertDialogContent>
+                </AlertDialog>
               )}
             </div>
           </div>
