@@ -1,31 +1,35 @@
-// databaseOperations.js
 import { getDatabase, ref, set, get, update, remove } from "firebase/database";
 import { app } from "@/lib/firebase/firebase";
 
-const db = getDatabase(app);
+export default class DatabaseOperations {
+  db: ReturnType<typeof getDatabase>;
 
-// Create
-// Create
-export const createData = async (path: string, data: object) => {
-  await set(ref(db, path), data);
-};
-
-// Read
-export const readData = async (path: string) => {
-  const snapshot = await get(ref(db, path));
-  if (snapshot.exists()) {
-    return snapshot.val();
-  } else {
-    console.log("No data available");
+  constructor() {
+    this.db = getDatabase(app);
   }
-};
 
-// Update
-export const updateData = async (path: string, data: object) => {
-  await update(ref(db, path), data);
-};
+  // Create
+  async createData(path: string, data: object) {
+    await set(ref(this.db, path), data);
+  }
 
-// Delete
-export const deleteData = async (path: string) => {
-  await remove(ref(db, path));
-};
+  // Read
+  async readData(path: string) {
+    const snapshot = await get(ref(this.db, path));
+    if (snapshot.exists()) {
+      return snapshot.val();
+    } else {
+      console.log("No data available");
+    }
+  }
+
+  // Update
+  async updateData(path: string, data: object) {
+    await update(ref(this.db, path), data);
+  }
+
+  // Delete
+  async deleteData(path: string) {
+    await remove(ref(this.db, path));
+  }
+}
