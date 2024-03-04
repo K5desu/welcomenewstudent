@@ -34,10 +34,10 @@ export default function Home() {
             <Image src="/home.png" height={100} width={100} alt="horizon" />
           </div>
           <h3 className="mt-3 text-xl font-medium text-center text-gray-600 dark:text-gray-200">
-            Horizonメンバー専用ページ
+            なかよし四人組専用ページ
           </h3>
           <p className="mt-1 text-center text-gray-500 dark:text-gray-400">
-            ※Horizonメンバー以外の方はログインできません
+            ※なかよし四人組以外の方はログインできません
           </p>{" "}
           <p className="mt-1 text-center text-gray-500 dark:text-gray-400">
             メンバー以外の方は{" "}
@@ -47,7 +47,7 @@ export default function Home() {
             に戻ってください
           </p>
           <p className="mt-5 font-bold text-gray-500 dark:text-gray-400 text-center">
-            メンバーの方はこちらからメンバーアカウントでloginしてください
+            メンバーの方はこちらから各自googleaccountでloginしてください
           </p>
           <div className="flex justify-center  mt-4">
             <div>
@@ -63,11 +63,11 @@ export default function Home() {
                   <AlertDialogContent>
                     <AlertDialogHeader>
                       <AlertDialogTitle>
-                        あなたはHorizonmemberですか？
+                        あなたはなかよしですか？
                       </AlertDialogTitle>
                       <AlertDialogDescription>
-                        このページはホライズンメンバーのみ入ることができます
-                        ホライズンメンバーの方はログインを押してください
+                        このページはなかよし四人組のみ入ることができます
+                        なかよし四人組の方はログインを押してください
                       </AlertDialogDescription>
                     </AlertDialogHeader>
                     <AlertDialogFooter>

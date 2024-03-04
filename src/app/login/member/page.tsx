@@ -5,7 +5,7 @@ import Logout from "@/components/auth/Logout";
 import { Button } from "@/components/ui/button";
 import { useSession } from "next-auth/react";
 import DatabaseOperations from "@/lib/firebase/realtimedatabase/crud";
-
+import Image from "next/image";
 export default function Home() {
   const [loading, setLoading] = useState(false);
   function createData(path: string, data: object) {
@@ -22,7 +22,8 @@ export default function Home() {
       router.push("/login");
     } else if (
       session.user &&
-      session.user.email !== "dekinousyonn@gmail.com"
+      session.user.email !== "dekinousyonn@gmail.com" &&
+      session.user.email !== "ibukishimizuuu@gmail.com"
     ) {
       // ログインしていないか、メールアドレスが一致しない場合はリダイレクトする
       router.push("/login/member/logout");
@@ -32,17 +33,9 @@ export default function Home() {
 
   if (loading)
     return (
-      <div>
-        <h1>Welcome to the members page!</h1>
-        <form>
-          <input
-            type="text"
-            name="question"
-            placeholder="Enter your question"
-          />
-          <input type="text" name="answer" placeholder="Enter your answer" />
-          <button>Submit</button>
-        </form>
+      <div className="flex flex-col justify-center items-center">
+        <h1>安田のホームページ</h1>
+        <Image src="/densetu.jpg" width={200} height={240} alt="伝説の一枚" />
         <Button>
           <Logout />
         </Button>
