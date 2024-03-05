@@ -5,7 +5,7 @@ import Logout from "@/components/auth/Logout";
 import { Button } from "@/components/ui/button";
 import { useSession } from "next-auth/react";
 import DatabaseOperations from "@/lib/firebase/realtimedatabase/crud";
-import Image from "next/image";
+
 export default function Home() {
   const [loading, setLoading] = useState(false);
   function createData(path: string, data: object) {
@@ -30,18 +30,16 @@ export default function Home() {
     }
     setLoading(true);
   }, [router, session, loading]);
+  return loading ? (
+    <div className="flex flex-col justify-center items-center">
+      <h1>安田のホームページ</h1>
 
-  if (!loading) return <div>Loading...</div>;
-  else if (loading) {
-    return (
-      <div className="flex flex-col justify-center items-center">
-        <h1>安田のホームページ</h1>
-
-        <Button>
-          <Logout />
-        </Button>
-        {/* ここにメンバーページのコンテンツを追加 */}
-      </div>
-    );
-  }
+      <Button>
+        <Logout />
+      </Button>
+      {/* ここにメンバーページのコンテンツを追加 */}
+    </div>
+  ) : (
+    <div>Loading...</div>
+  );
 }
