@@ -31,16 +31,25 @@ export default function Home() {
     setLoading(true);
   }, [router, session, loading]);
 
-  if (loading)
-    return (
-      <div className="flex flex-col justify-center items-center">
-        <h1>安田のホームページ</h1>
-        <Image src="/densetu.jpg" width={200} height={240} alt="伝説の一枚" />
-        <Button>
-          <Logout />
-        </Button>
-        {/* ここにメンバーページのコンテンツを追加 */}
-      </div>
-    );
-  return <div>Loading...</div>;
+  if (session?.user) {
+    if (!loading) return <div>Loading...</div>;
+    else if (
+      loading &&
+      session.user &&
+      session.user.email !== "dekinousyonn@gmail.com" &&
+      session.user.email !== "ibukishimizuuu@gmail.com"
+    ) {
+      return (
+        <div className="flex flex-col justify-center items-center">
+          <h1>安田のホームページ</h1>
+          <Image src="/densetu.jpg" width={200} height={240} alt="伝説の一枚" />
+          <Button>
+            <Logout />
+          </Button>
+          {/* ここにメンバーページのコンテンツを追加 */}
+        </div>
+      );
+    }
+  }
+  return <>loading</>;
 }
