@@ -23,7 +23,8 @@ export default function Home() {
     } else if (
       session.user &&
       session.user.email !== "dekinousyonn@gmail.com" &&
-      session.user.email !== "ibukishimizuuu@gmail.com"
+      session.user.email !== "ibukishimizuuu@gmail.com" &&
+      session.user.email !== "karupisu1123@gmail.com"
     ) {
       // ログインしていないか、メールアドレスが一致しない場合はリダイレクトする
       router.push("/login/member/logout");
@@ -37,6 +38,7 @@ export default function Home() {
       {loading ? (
         <div className="flex flex-col justify-center items-center">
           <h1>安田のホームページ</h1>
+          <h1>ようこそ、{session && session.user && session.user.name}さん</h1>
 
           <Button>
             <Logout />
