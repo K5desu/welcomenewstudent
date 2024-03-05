@@ -28,16 +28,24 @@ export default function Home() {
       router.push("/login/member/logout");
     }
   }, [router, session]);
-  return session ? (
-    <div className="flex flex-col justify-center items-center">
-      <h1>安田のホームページ</h1>
 
-      <Button>
-        <Logout />
-      </Button>
-      {/* ここにメンバーページのコンテンツを追加 */}
+  return (
+    <div>
+      {session &&
+      session.user &&
+      session.user.email !== "dekinousyonn@gmail.com" &&
+      session.user.email !== "ibukishimizuuu@gmail.com" ? (
+        <div className="flex flex-col justify-center items-center">
+          <h1>安田のホームページ</h1>
+
+          <Button>
+            <Logout />
+          </Button>
+          {/* ここにメンバーページのコンテンツを追加 */}
+        </div>
+      ) : (
+        <div>Loading...</div>
+      )}
     </div>
-  ) : (
-    <div>Loading...</div>
   );
 }
