@@ -7,6 +7,7 @@ import { useSession } from "next-auth/react";
 import DatabaseOperations from "@/lib/firebase/realtimedatabase/crud";
 
 export default function Home() {
+  const [loading, setLoading] = useState(false);
   function createData(path: string, data: object) {
     const databaseOperations = new DatabaseOperations();
     databaseOperations
@@ -26,15 +27,14 @@ export default function Home() {
     ) {
       // ログインしていないか、メールアドレスが一致しない場合はリダイレクトする
       router.push("/login/member/logout");
+    } else {
+      setLoading(true);
     }
   }, [router, session]);
 
   return (
     <div>
-      {session &&
-      session.user &&
-      session.user.email !== "dekinousyonn@gmail.com" &&
-      session.user.email !== "ibukishimizuuu@gmail.com" ? (
+      {loading ? (
         <div className="flex flex-col justify-center items-center">
           <h1>安田のホームページ</h1>
 
