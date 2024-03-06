@@ -57,27 +57,15 @@ export default function Qa({ question, answer }: CardProps) {
           </span>
         )}
       </button>
-      {showAnswer &&
-        (setShow(!show),
-        (
-          <div>
-            <hr
-              className={clsx(
-                "border-gray-200 dark:border-gray-700 transition-transform duration-1000 ease-out transform translate-y-[-100%] opacity-0",
-                { "translate-y-[0%] opacity-100": show }
-              )}
-            />
+      {showAnswer && (
+        <div>
+          <hr className="border-gray-200 dark:border-gray-700 animate-pulldown" />
 
-            <p
-              className={clsx(
-                "p-8 text-sm text-gray-500 dark:text-gray-1000  transition-transform duration-300 ease-out transform translate-y-[-100%] opacity-0",
-                { "translate-y-[0%] opacity-100": show }
-              )}
-            >
-              {answer}
-            </p>
-          </div>
-        ))}
+          <p className="p-8 text-sm text-gray-500 dark:text-gray-1000  animate-pulldown">
+            {answer}
+          </p>
+        </div>
+      )}
     </div>
   );
 }
