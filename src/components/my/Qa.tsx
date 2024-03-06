@@ -20,7 +20,7 @@ export default function Qa({ question, answer }: CardProps) {
         <h1 className="font-semibold text-gray-700 dark:text-white text-center">
           {question}
         </h1>
-        {showAnswer ? (
+        {!showAnswer ? (
           <span className="text-white bg-blue-500 rounded-full">
             <svg
               xmlns="http://www.w3.org/2000/svg"

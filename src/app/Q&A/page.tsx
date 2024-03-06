@@ -11,7 +11,7 @@ export default function Home() {
         {question.length > 0 ? (
           <section className="bg-white dark:bg-gray-900">
             <div className="container max-w-4xl px-6 py-10 mx-auto">
-              <h1 className="text-2xl font-semibold text-center text-gray-800 lg:text-3xl dark:text-white">
+              <h1 className="text-2xl font-semibold text-center text-gray-800 lg:text-3xl dark:text-white mb-5">
                 最新の質問
               </h1>
 
