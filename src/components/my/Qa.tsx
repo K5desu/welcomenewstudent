@@ -8,6 +8,7 @@ interface CardProps {
 }
 export default function Qa({ question, answer }: CardProps) {
   const [showAnswer, setShowAnswer] = useState(false);
+  const [show, setShow] = useState(false);
   return (
     <div className="border-2 border-gray-100 rounded-lg dark:border-gray-700">
       <button
@@ -56,25 +57,27 @@ export default function Qa({ question, answer }: CardProps) {
           </span>
         )}
       </button>
-      {showAnswer && (
-        <div>
-          <hr
-            className={clsx(
-              "border-gray-200 dark:border-gray-700 transition-transform duration-300 ease-out transform translate-y-[-100%] opacity-0",
-              { "translate-y-[0%] opacity-100": showAnswer }
-            )}
-          />
+      {showAnswer &&
+        (setShow(!show),
+        (
+          <div>
+            <hr
+              className={clsx(
+                "border-gray-200 dark:border-gray-700 transition-transform duration-1000 ease-out transform translate-y-[-100%] opacity-0",
+                { "translate-y-[0%] opacity-100": show }
+              )}
+            />
 
-          <p
-            className={clsx(
-              "p-8 text-sm text-gray-500 dark:text-gray-300  transition-transform duration-300 ease-out transform translate-y-[-100%] opacity-0",
-              { "translate-y-[0%] opacity-100": showAnswer }
-            )}
-          >
-            {answer}
-          </p>
-        </div>
-      )}
+            <p
+              className={clsx(
+                "p-8 text-sm text-gray-500 dark:text-gray-1000  transition-transform duration-300 ease-out transform translate-y-[-100%] opacity-0",
+                { "translate-y-[0%] opacity-100": show }
+              )}
+            >
+              {answer}
+            </p>
+          </div>
+        ))}
     </div>
   );
 }
