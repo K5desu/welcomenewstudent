@@ -16,8 +16,8 @@ export default function Home() {
               </h1>
 
               <Qa
-                question="学校の雰囲気はどんな感じですか？"
-                answer="学校の雰囲気はとても良いです。"
+                question="Horizonに入るべきですか？"
+                answer="Horizonはとても良いです。"
               />
 
               <div className="border-2 border-gray-100 rounded-lg dark:border-gray-700">
