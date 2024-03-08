@@ -45,9 +45,6 @@ export default function Home() {
           <br />
           ※2024年度の活動内容とは一部変更となる部分があります。
         </div>
-        <span className="text-sm text-gray-700 dark:text-gray-200">
-          Horizon
-        </span>
       </div>
     </div>
   );
