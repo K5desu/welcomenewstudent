@@ -35,10 +35,10 @@ export default function Home() {
         <div className="block text-xl font-bold text-gray-800 dark:text-white"></div>
         {question.length > 0 ? (
           <section className="bg-white dark:bg-gray-900">
-            <div className="flex justify-end">
+            <div className="flex justify-end pr-5">
               <Button
+                variant="destructive"
                 onClick={async () => await wheterlogin()}
-                className="pr-5"
               >
                 削除ページへ
               </Button>
