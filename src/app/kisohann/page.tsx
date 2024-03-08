@@ -1,7 +1,7 @@
 import Image from "next/image";
 export default function Home() {
   return (
-    <div>
+    <div className="text-center">
       <div className="py-5 flex flex-col justify-center items-center">
         <div className="block text-3xl font-bold text-gray-800 dark:text-white py-10">
           基礎班について
