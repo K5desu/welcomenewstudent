@@ -4,17 +4,11 @@ import { useRouter } from "next/navigation";
 import Logout from "@/components/auth/Logout";
 import { Button } from "@/components/ui/button";
 import { useSession } from "next-auth/react";
-import DatabaseOperations from "@/lib/firebase/realtimedatabase/crud";
+
 import { Component } from "@/components/component/component";
 export default function Home() {
   const [loading, setLoading] = useState(false);
-  function createData(path: string, data: object) {
-    const databaseOperations = new DatabaseOperations();
-    databaseOperations
-      .createData(path, data)
-      .then(() => console.log("Data created successfully"))
-      .catch((error) => console.error("Failed to create data:", error));
-  }
+
   const { data: session, status } = useSession();
   const router = useRouter();
   useEffect(() => {
@@ -24,7 +18,8 @@ export default function Home() {
       session.user &&
       session.user.email !== "dekinousyonn@gmail.com" &&
       session.user.email !== "ibukishimizuuu@gmail.com" &&
-      session.user.email !== "karupisu1123@gmail.com"
+      session.user.email !== "karupisu1123@gmail.com" &&
+      session.user.email !== "y230190@mail.ryukoku.ac.jp"
     ) {
       // ログインしていないか、メールアドレスが一致しない場合はリダイレクトする
       router.push("/login/member/logout");

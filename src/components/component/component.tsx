@@ -12,8 +12,16 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
+import DatabaseOperations from "@/lib/firebase/realtimedatabase/crud";
 
 export function Component() {
+  function createData(path: string, data: object) {
+    const databaseOperations = new DatabaseOperations();
+    databaseOperations
+      .createData(path, data)
+      .then(() => console.log("Data created successfully"))
+      .catch((error) => console.error("Failed to create data:", error));
+  }
   return (
     <Card className="w-full max-w-3xl">
       <CardHeader>
@@ -39,7 +47,7 @@ export function Component() {
         </div>
       </CardContent>
       <CardFooter>
-        <Button>Submit</Button>
+        <Button onClick={() => createData}>Submit</Button>
       </CardFooter>
     </Card>
   );
