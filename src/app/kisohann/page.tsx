@@ -4,7 +4,7 @@ export default function Home() {
     <div>
       <div className="py-5 flex flex-col justify-center items-center">
         <div className="block text-3xl font-bold text-gray-800 dark:text-white py-10">
-        基礎班について
+          基礎班について
         </div>
 
         <Image src="/kisohan.jpg" height={242} width={300} alt="tosi"></Image>
@@ -28,21 +28,26 @@ export default function Home() {
           </span>
           <br />
           <br />
-          ◎5月<br />
-          　・自己紹介サイトの作成
+          ◎5月
+          <br />
+          &nbsp;・自己紹介サイトの作成
           <br />
           <br />
-          ◎6月<br />
-          　・アニメーションやギミックの導入の勉強
+          ◎6月
+          <br />
+          &nbsp;・アニメーションやギミックの導入の勉強
           <br />
           <br />
-          ◎7月<br />
-          　・チーム開発準備
+          ◎7月
+          <br />
+          &nbsp;・チーム開発準備
           <br />
           <br />
           ※2024年度の活動内容とは一部変更となる部分があります。
         </div>
-        <span className="text-sm text-gray-700 dark:text-gray-200">Horizon</span>
+        <span className="text-sm text-gray-700 dark:text-gray-200">
+          Horizon
+        </span>
       </div>
     </div>
   );
