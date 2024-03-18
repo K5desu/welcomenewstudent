@@ -8,6 +8,7 @@ import { signIn } from "next-auth/react";
 import { Input } from "@/components/ui/input";
 import { useRouter } from "next/navigation";
 import DatabaseOperations from "@/lib/firebase/realtimedatabase/crud";
+import Check from "@/components/auth/Check";
 
 export default function Home() {
   const inputRef = useRef<HTMLInputElement>(null);
@@ -31,14 +32,7 @@ export default function Home() {
     if (!session) {
       await signIn("google", {}, { prompt: "login" });
       router.push("/Q&A/delete");
-    } else if (
-      session.user &&
-      session.user.email !== "dekinousyonn@gmail.com" &&
-      session.user.email !== "ibukishimizuuu@gmail.com" &&
-      session.user.email !== "karupisu1123@gmail.com" &&
-      session.user.email !== "y230190@mail.ryukoku.ac.jp" &&
-      session.user.email !== "ryukokuhorizon.member@gmail.com"
-    ) {
+    } else if (session.user && Check(session.user.email)) {
       // ログインしていないか、メールアドレスが一致しない場合はリダイレクトする
       await signIn("google", {}, { prompt: "login" });
       router.push("/Q&A/delete");
