@@ -5,6 +5,7 @@ import Logout from "@/components/auth/Logout";
 import { Button } from "@/components/ui/button";
 import { useSession } from "next-auth/react";
 import { Component } from "@/components/component/component";
+import Link from "next/link";
 export default function Home() {
   const [loading, setLoading] = useState(false);
 
@@ -30,6 +31,9 @@ export default function Home() {
     <div>
       {loading ? (
         <div className="flex flex-col justify-center items-center">
+          <Link href="https://console.firebase.google.com/u/0/project/welcome-416001/database/welcome-416001-default-rtdb/data?hl=ja">
+            消しますリンク
+          </Link>
           <Component />
           <Button>
             <Logout />
