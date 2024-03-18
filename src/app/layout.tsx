@@ -1,6 +1,6 @@
 import "@/app/globals.css"; // import "@/app/ui/global.css"
 import { Button } from "@/components/ui/button";
-
+import { Toaster } from "@/components/ui/toaster";
 import { Inter } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
@@ -109,6 +109,7 @@ export default function RootLayout({
             </div>
           </div>
         </div>
+        <Toaster />
       </body>
     </>
   );

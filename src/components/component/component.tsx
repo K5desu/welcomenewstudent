@@ -15,9 +15,11 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import DatabaseOperations from "@/lib/firebase/realtimedatabase/crud";
 import { useState } from "react";
+import { useToast } from "@/components/ui/use-toast";
 
 export function Component() {
   let path = "Q&A";
+  const { toast } = useToast();
 
   function createData(path: string, data: object) {
     const databaseOperations = new DatabaseOperations();
@@ -27,6 +29,10 @@ export function Component() {
         console.log("Data created successfully");
         setQuestion("");
         setAnswer("");
+        toast({
+          title: "Q&Aページに投稿しました",
+          description: "正常に投稿されているか確認してください",
+        });
       })
       .catch((error) => console.error("Failed to create data:", error));
   }

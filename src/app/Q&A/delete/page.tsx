@@ -19,7 +19,8 @@ export default function Home() {
       session.user.email !== "dekinousyonn@gmail.com" &&
       session.user.email !== "ibukishimizuuu@gmail.com" &&
       session.user.email !== "karupisu1123@gmail.com" &&
-      session.user.email !== "y230190@mail.ryukoku.ac.jp"
+      session.user.email !== "y230190@mail.ryukoku.ac.jp" &&
+      session.user.email !== "ryukokuhorizon.member@gmail.com"
     ) {
       // ログインしていないか、メールアドレスが一致しない場合はリダイレクトする
       router.push("/login/member/logout");
