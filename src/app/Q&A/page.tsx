@@ -10,8 +10,9 @@ import { useRouter } from "next/navigation";
 import DatabaseOperations from "@/lib/firebase/realtimedatabase/crud";
 
 export default function Home() {
+  const inputRef = useRef<HTMLInputElement>(null);
   const [showAnswer, setShowAnswer] = useState(false);
-  const [native, setNative] = useState(false);
+
   type FetchDataType = {
     [key: string]: {
       question: string;
@@ -55,6 +56,9 @@ export default function Home() {
           }
         });
         setFetchData(newFetchData);
+        if (inputRef && inputRef.current) {
+          inputRef.current.blur();
+        }
         setSearch("");
       }
     }
@@ -86,6 +90,7 @@ export default function Home() {
                   placeholder="気になるquestion入力"
                   className="ml-5"
                   value={search}
+                  ref={inputRef}
                   onChange={(e) => setSearch(e.target.value)}
                 />
               </form>
