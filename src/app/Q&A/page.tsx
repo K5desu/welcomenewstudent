@@ -45,6 +45,20 @@ export default function Home() {
       router.push("/Q&A/delete");
     }
   }
+  function Push() {
+    {
+      const newFetchData = { ...Alldata.current };
+      if (newFetchData) {
+        Object.keys(newFetchData).map((key: string) => {
+          if (!newFetchData[key].question.includes(search)) {
+            delete newFetchData[key];
+          }
+        });
+        setFetchData(newFetchData);
+        setSearch("");
+      }
+    }
+  }
   useEffect(() => {
     async function fetchData() {
       const dbOps = new DatabaseOperations();
@@ -62,30 +76,21 @@ export default function Home() {
         {question.length > 0 ? (
           <section className="bg-white dark:bg-gray-900">
             <div className="flex justify-between pr-5">
-              <Input
-                placeholder="気になるquestion入力"
-                className="ml-5"
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-              />
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  Push();
+                }}
+              >
+                <Input
+                  placeholder="気になるquestion入力"
+                  className="ml-5"
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
+                />
+              </form>
               {search ? (
-                <Button
-                  onClick={() => {
-                    console.log(Alldata.current);
-                    const newFetchData = { ...Alldata.current };
-                    if (newFetchData) {
-                      Object.keys(newFetchData).map((key: string) => {
-                        if (!newFetchData[key].question.includes(search)) {
-                          delete newFetchData[key];
-                        }
-                      });
-                      setFetchData(newFetchData);
-                      setSearch("");
-                    }
-                  }}
-                >
-                  検索
-                </Button>
+                <Button onClick={() => Push()}>検索</Button>
               ) : (
                 <Button onClick={() => setFetchData(Alldata.current)}>
                   元に戻す
