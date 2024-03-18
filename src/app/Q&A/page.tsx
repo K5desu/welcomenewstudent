@@ -3,11 +3,15 @@ import Qa from "@/components/my/Qa";
 import { useSession } from "next-auth/react";
 import Coming from "@/components/ui/comingsoon";
 import { Button } from "@/components/ui/button";
-import { use, useState, useEffect } from "react";
+import { useRef, useState, useEffect } from "react";
 import { signIn } from "next-auth/react";
+import { Input } from "@/components/ui/input";
 import { useRouter } from "next/navigation";
 import DatabaseOperations from "@/lib/firebase/realtimedatabase/crud";
+
 export default function Home() {
+  const [showAnswer, setShowAnswer] = useState(false);
+  const [native, setNative] = useState(false);
   type FetchDataType = {
     [key: string]: {
       question: string;
@@ -15,9 +19,11 @@ export default function Home() {
     };
   };
   const router = useRouter();
+  const Alldata = useRef<FetchDataType>();
   // ここでデータを格納するための変数を宣言します
   const [fetchData, setFetchData] = useState<FetchDataType>();
   const { data: session } = useSession();
+  const [search, setSearch] = useState("");
   const question: string | never[] = "What is your favorite color?";
 
   async function wheterlogin() {
@@ -43,7 +49,7 @@ export default function Home() {
       const dbOps = new DatabaseOperations();
       const data = await dbOps.readData("Q&A");
       setFetchData(data);
-      console.log(data); // { name: 'John', age: 30 }
+      Alldata.current = data; // { name: 'John', age: 30 }
     }
     fetchData();
   }, []);
@@ -54,24 +60,60 @@ export default function Home() {
         <div className="block text-xl font-bold text-gray-800 dark:text-white"></div>
         {question.length > 0 ? (
           <section className="bg-white dark:bg-gray-900">
-            <div className="flex justify-end pr-5">
+            <div className="flex justify-between pr-5">
+              <Input
+                placeholder="気になるquestion入力"
+                className="ml-5 mr-8"
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+              />
+              {search ? (
+                <Button
+                  className="ml-5"
+                  onClick={() => {
+                    console.log(Alldata.current);
+                    const newFetchData = { ...Alldata.current };
+                    if (newFetchData) {
+                      Object.keys(newFetchData).map((key: string) => {
+                        if (!newFetchData[key].question.includes(search)) {
+                          delete newFetchData[key];
+                        }
+                      });
+                      setFetchData(newFetchData);
+                      setSearch("");
+                    }
+                  }}
+                >
+                  検索
+                </Button>
+              ) : (
+                <Button
+                  className="ml-5"
+                  onClick={() => setFetchData(Alldata.current)}
+                >
+                  元に戻す
+                </Button>
+              )}
+
               <Button
                 variant="destructive"
                 onClick={async () => await wheterlogin()}
+                className="w-1/5"
               >
-                削除ページへ
+                Q&A削除
               </Button>
             </div>
             <div className="container max-w-4xl px-6 py-10 mx-auto">
               <h1 className="text-2xl font-semibold text-center text-gray-800 lg:text-3xl dark:text-white mb-5">
                 最新の質問
               </h1>
-              {fetchData ? (
+              {fetchData && Object.keys(fetchData).length !== 0 ? (
                 Object.keys(fetchData).map((key: string) => (
                   <Qa
                     key={key}
                     question={fetchData[key].question}
                     answer={fetchData[key].answer}
+                    bool={showAnswer}
                   />
                 ))
               ) : (

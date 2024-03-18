@@ -15,7 +15,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import DatabaseOperations from "@/lib/firebase/realtimedatabase/crud";
 import { useState } from "react";
-import { set } from "firebase/database";
+
 export function Component() {
   let path = "Q&A";
 

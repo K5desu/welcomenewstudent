@@ -1,14 +1,14 @@
 "use client";
 import { useState } from "react";
-import clsx from "clsx";
 
 interface CardProps {
   question: string;
   answer: string;
+  bool: boolean;
 }
-export default function Qa({ question, answer }: CardProps) {
-  const [showAnswer, setShowAnswer] = useState(false);
-  const [show, setShow] = useState(false);
+export default function Qa({ question, answer, bool }: CardProps) {
+  const [showAnswer, setShowAnswer] = useState(bool);
+
   return (
     <div className="border-2 border-gray-100 rounded-lg dark:border-gray-700">
       <button
