@@ -14,7 +14,7 @@ export default function Home() {
   useEffect(() => {
     if (!session) {
       router.push("/login");
-    } else if (Check()) {
+    } else if (session.user && Check(session.user.email)) {
       // ログインしていないか、メールアドレスが一致しない場合はリダイレクトする
       router.push("/login/member/logout");
     } else {

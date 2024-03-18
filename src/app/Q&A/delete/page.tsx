@@ -1,11 +1,12 @@
 "use client";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import Check from "@/components/auth/Check";
+import Logout from "@/components/auth/Logout";
 import { Button } from "@/components/ui/button";
 import { useSession } from "next-auth/react";
-
+import { Component } from "@/components/component/component";
 import Link from "next/link";
+import Check from "@/components/auth/Check";
 export default function Home() {
   const [loading, setLoading] = useState(false);
 
@@ -14,7 +15,7 @@ export default function Home() {
   useEffect(() => {
     if (!session) {
       router.push("/login");
-    } else if (Check()) {
+    } else if (session.user && Check(session.user.email)) {
       // ログインしていないか、メールアドレスが一致しない場合はリダイレクトする
       router.push("/login/member/logout");
     } else {

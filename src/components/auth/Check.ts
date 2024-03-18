@@ -1,13 +1,8 @@
-import { useSession } from "next-auth/react";
-export default function Check() {
-  const { data: session } = useSession();
+export default function Check(email: string | null | undefined) {
   if (
-    session &&
-    session.user &&
-    session.user &&
-    session.user.email !== "dekinousyonn@gmail.com" &&
-    session.user.email !== "y230190@mail.ryukoku.ac.jp" &&
-    session.user.email !== "ryukokuhorizon.member@gmail.com"
+    email !== "dekinousyonn@gmail.com" &&
+    email !== "y230190@mail.ryukoku.ac.jp" &&
+    email !== "ryukokuhorizon.member@gmail.com"
   )
     return true;
 }
