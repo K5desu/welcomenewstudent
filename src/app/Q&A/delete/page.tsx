@@ -31,12 +31,10 @@ export default function Home() {
     <div>
       {loading ? (
         <div className="flex flex-col justify-center items-center">
-          <Link href="https://console.firebase.google.com/u/0/project/welcome-416001/database/welcome-416001-default-rtdb/data?hl=ja">
-            消しますリンク
-          </Link>
-          <Component />
           <Button>
-            <Logout />
+            <Link href="https://console.firebase.google.com/u/0/project/welcome-416001/database/welcome-416001-default-rtdb/data?hl=ja">
+              消しますリンク
+            </Link>
           </Button>
         </div>
       ) : (
