@@ -70,7 +70,6 @@ export default function Home() {
               />
               {search ? (
                 <Button
-                  className="ml-5"
                   onClick={() => {
                     console.log(Alldata.current);
                     const newFetchData = { ...Alldata.current };
@@ -88,10 +87,7 @@ export default function Home() {
                   検索
                 </Button>
               ) : (
-                <Button
-                  className="ml-5"
-                  onClick={() => setFetchData(Alldata.current)}
-                >
+                <Button onClick={() => setFetchData(Alldata.current)}>
                   元に戻す
                 </Button>
               )}
