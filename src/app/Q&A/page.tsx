@@ -94,14 +94,6 @@ export default function Home() {
                   元に戻す
                 </Button>
               )}
-
-              <Button
-                variant="destructive"
-                onClick={async () => await wheterlogin()}
-                className="w-1/5"
-              >
-                Q&A削除
-              </Button>
             </div>
             <div className="container max-w-4xl px-6 py-10 mx-auto">
               <h1 className="text-2xl font-semibold text-center text-gray-800 lg:text-3xl dark:text-white mb-5">
@@ -126,6 +118,15 @@ export default function Home() {
         ) : (
           <Coming />
         )}
+      </div>
+      <div className="flex justify-end">
+        <Button
+          variant="destructive"
+          onClick={async () => await wheterlogin()}
+          className="w-1/5 mr-5 mb-5"
+        >
+          Q&A削除
+        </Button>
       </div>
     </div>
   );
