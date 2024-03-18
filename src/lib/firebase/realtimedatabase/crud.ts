@@ -1,4 +1,12 @@
-import { getDatabase, ref, set, get, update, remove } from "firebase/database";
+import {
+  getDatabase,
+  ref,
+  set,
+  get,
+  update,
+  remove,
+  push,
+} from "firebase/database";
 import { app } from "@/lib/firebase/firebase";
 
 export default class DatabaseOperations {
@@ -10,13 +18,15 @@ export default class DatabaseOperations {
 
   // Create
   async createData(path: string, data: object) {
-    await set(ref(this.db, path), data);
+    const newRef = push(ref(this.db, path));
+    await set(newRef, data);
   }
 
   // Read
   async readData(path: string) {
     const snapshot = await get(ref(this.db, path));
     if (snapshot.exists()) {
+      console.log(snapshot.key, "=>", snapshot.val());
       return snapshot.val();
     } else {
       console.log("No data available");
