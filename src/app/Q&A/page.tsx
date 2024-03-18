@@ -64,7 +64,7 @@ export default function Home() {
             <div className="flex justify-between pr-5">
               <Input
                 placeholder="気になるquestion入力"
-                className="ml-5 mr-8"
+                className="ml-5"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
               />
