@@ -97,26 +97,25 @@ export default function Home() {
           <br />
           <br />
         </div>
-      </div>
-      <span className="font-bold text-shadow text-2lx">
-        2024年度基礎班の活動予定
-      </span>
-      <br />
-      <div className="text-left">
-        {months.map((month, index) => (
-          <div key={index}>
-            <Button onClick={() => toggle(index)}>{month.name}</Button>
-            <br />
-            {isOpen[index] && (
-              <ul>
-                {month.events.map((event, i) => (
-                  <li key={i}>{event}</li>
-                ))}
-              </ul>
-            )}
-            <br />
-          </div>
-        ))}
+        <span className="font-bold text-shadow text-2lx">
+          2024年度基礎班の活動予定
+        </span>
+        <br />
+        <div className="text-left">
+          {months.map((month, index) => (
+            <div key={index}>
+              <Button onClick={() => toggle(index)}>{month.name}</Button>
+              {isOpen[index] && (
+                <ul>
+                  {month.events.map((event, i) => (
+                    <li key={i}>{event}</li>
+                  ))}
+                </ul>
+              )}
+              <br />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
