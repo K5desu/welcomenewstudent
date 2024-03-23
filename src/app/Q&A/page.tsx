@@ -9,10 +9,12 @@ import { Input } from "@/components/ui/input";
 import { useRouter } from "next/navigation";
 import DatabaseOperations from "@/lib/firebase/realtimedatabase/crud";
 import Check from "@/components/auth/Check";
+import { set } from "firebase/database";
 
 export default function Home() {
   const inputRef = useRef<HTMLInputElement>(null);
   const [showAnswer, setShowAnswer] = useState(false);
+  const [showSearch, setShowSearch] = useState(true);
 
   type FetchDataType = {
     [key: string]: {
@@ -54,6 +56,7 @@ export default function Home() {
           inputRef.current.blur();
         }
         setSearch("");
+        setShowSearch(false);
       }
     }
   }
@@ -85,10 +88,13 @@ export default function Home() {
                   className="ml-5"
                   value={search}
                   ref={inputRef}
-                  onChange={(e) => setSearch(e.target.value)}
+                  onChange={(e) => {
+                    setSearch(e.target.value);
+                    setShowSearch(true);
+                  }}
                 />
               </form>
-              {search ? (
+              {showSearch ? (
                 <Button onClick={() => Push()}>検索</Button>
               ) : (
                 <Button onClick={() => setFetchData(Alldata.current)}>
