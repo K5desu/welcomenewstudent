@@ -1,16 +1,35 @@
 "use client";
+import DatabaseOperations from "@/lib/firebase/realtimedatabase/crud";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
+
 interface CardProps {
   question: string;
   answer: string;
   bool: boolean;
+  id: string;
 }
-export default function Qa({ question, answer, bool }: CardProps) {
+export default function Qa({ question, answer, bool, id }: CardProps) {
   const [showAnswer, setShowAnswer] = useState<boolean>(false);
+  async function deletes() {
+    const dbOps = new DatabaseOperations();
+    await dbOps.deleteData("Q&A", id);
+    window.location.reload();
+  }
 
   return (
-    <div className="border-2 border-gray-100 rounded-lg dark:border-gray-700">
+    <div className="border-2 border-gray-100 rounded-lg dark:border-gray-700 flex justify-between">
       <button
         className="flex items-center justify-between w-full p-8"
         onClick={() => {
@@ -21,6 +40,7 @@ export default function Qa({ question, answer, bool }: CardProps) {
         <h1 className="font-semibold text-gray-700 dark:text-white text-center">
           {question}
         </h1>
+
         {!showAnswer ? (
           <span className="text-white bg-blue-500 rounded-full">
             <svg
@@ -66,6 +86,30 @@ export default function Qa({ question, answer, bool }: CardProps) {
           </p>
         </div>
       )}
+      <AlertDialog>
+        <AlertDialogTrigger asChild>
+          <Button variant="destructive">削除</Button>
+        </AlertDialogTrigger>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>本当に削除しますか？</AlertDialogTitle>
+            <AlertDialogDescription>
+              削除したら元に戻せません
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>Cancel</AlertDialogCancel>
+
+            <Button
+              variant="destructive"
+              onClick={async () => await deletes()}
+              className="w-full"
+            >
+              削除
+            </Button>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </div>
   );
 }

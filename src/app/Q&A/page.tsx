@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { useRef, useState, useEffect } from "react";
 import Check from "@/components/auth/Check";
 import { Input } from "@/components/ui/input";
-import { useRouter } from "next/navigation";
+
 import DatabaseOperations from "@/lib/firebase/realtimedatabase/crud";
 
 export default function Home() {
@@ -15,8 +15,11 @@ export default function Home() {
   const [showSearch, setShowSearch] = useState(true);
   const { data: session } = useSession();
   type FetchDataType = {
-    question: string;
-    answer: string;
+    id: string;
+    data: {
+      question: string;
+      answer: string;
+    };
   };
 
   const Alldata = useRef<FetchDataType[]>();
@@ -30,7 +33,7 @@ export default function Home() {
     if (Alldata.current) {
       let newFetchData = [...Alldata.current];
       newFetchData = newFetchData.filter((data: FetchDataType) =>
-        data.question.toLowerCase().includes(search.toLowerCase())
+        data.data.question.toLowerCase().includes(search.toLowerCase())
       );
 
       setFetchData(newFetchData);
@@ -92,7 +95,12 @@ export default function Home() {
               {showSearch ? (
                 <Button onClick={() => Push()}>検索</Button>
               ) : (
-                <Button onClick={() => setFetchData(Alldata.current)}>
+                <Button
+                  onClick={() => {
+                    setFetchData(Alldata.current);
+                    setShowSearch(false);
+                  }}
+                >
                   元に戻す
                 </Button>
               )}
@@ -105,9 +113,10 @@ export default function Home() {
                 fetchData.map((fetchdata, index) => (
                   <Qa
                     key={index}
-                    question={fetchdata.question}
-                    answer={fetchdata.answer}
+                    question={fetchdata.data.question}
+                    answer={fetchdata.data.answer}
                     bool={showAnswer}
+                    id={fetchdata.id}
                   />
                 ))
               ) : (

@@ -19,9 +19,13 @@ export default class DatabaseOperations {
   // Read
   async readData(collection: string) {
     const snapshot = await this.db.collection(collection).get();
-    return snapshot.docs.map((doc) => doc.data());
+    return snapshot.docs.map((doc) => {
+      return {
+        id: doc.id,
+        data: doc.data(),
+      };
+    });
   }
-
   // Update
   async updateData(collection: string, docId: string, data: object) {
     await this.db.collection(collection).doc(docId).update(data);
