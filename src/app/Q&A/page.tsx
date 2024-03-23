@@ -30,18 +30,6 @@ export default function Home() {
   const [search, setSearch] = useState("");
   const question: string | never[] = "What is your favorite color?";
 
-  async function wheterlogin() {
-    if (!session) {
-      await signIn("google", {}, { prompt: "login" });
-      router.push("/Q&A/delete");
-    } else if (session.user && Check(session.user.email)) {
-      // ログインしていないか、メールアドレスが一致しない場合はリダイレクトする
-      await signIn("google", {}, { prompt: "login" });
-      router.push("/Q&A/delete");
-    } else {
-      router.push("/Q&A/delete");
-    }
-  }
   function Push() {
     {
       const newFetchData = { ...Alldata.current };
@@ -63,9 +51,18 @@ export default function Home() {
   useEffect(() => {
     async function fetchData() {
       const dbOps = new DatabaseOperations();
-      const data = await dbOps.readData("Q&A");
-      setFetchData(data);
-      Alldata.current = data; // { name: 'John', age: 30 }
+
+      const rawData = await dbOps.readData("Q&A");
+      const data: FetchDataType = {};
+
+      rawData.forEach((doc) => {
+        data[doc.id] = {
+          question: doc.question,
+          answer: doc.answer,
+        };
+        setFetchData(data);
+        Alldata.current = data;
+      });
     }
     fetchData();
   }, []);
@@ -126,15 +123,7 @@ export default function Home() {
           <Coming />
         )}
       </div>
-      <div className="flex justify-end">
-        <Button
-          variant="destructive"
-          onClick={async () => await wheterlogin()}
-          className="w-1/5 mr-5 mb-5"
-        >
-          Q&A削除
-        </Button>
-      </div>
+      <div className="flex justify-end"></div>
     </div>
   );
 }

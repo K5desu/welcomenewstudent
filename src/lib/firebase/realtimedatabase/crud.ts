@@ -1,45 +1,34 @@
-import {
-  getDatabase,
-  ref,
-  set,
-  get,
-  update,
-  remove,
-  push,
-} from "firebase/database";
-import { app } from "@/lib/firebase/firebase";
-
+import { firebaseConfig } from "@/lib/firebase/firebase";
+import firebase from "firebase/compat/app";
+import "firebase/compat/firestore";
 export default class DatabaseOperations {
-  db: ReturnType<typeof getDatabase>;
-
+  db: firebase.firestore.Firestore;
   constructor() {
-    this.db = getDatabase(app);
+    if (!firebase.apps.length) {
+      firebase.initializeApp(firebaseConfig);
+    }
+
+    this.db = firebase.firestore();
   }
 
   // Create
-  async createData(path: string, data: object) {
-    const newRef = push(ref(this.db, path));
-    await set(newRef, data);
+  async createData(collection: string, data: object) {
+    await this.db.collection(collection).add(data);
   }
 
   // Read
-  async readData(path: string) {
-    const snapshot = await get(ref(this.db, path));
-    if (snapshot.exists()) {
-      console.log(snapshot.key, "=>", snapshot.val());
-      return snapshot.val();
-    } else {
-      console.log("No data available");
-    }
+  async readData(collection: string) {
+    const snapshot = await this.db.collection(collection).get();
+    return snapshot.docs.map((doc) => doc.data());
   }
 
   // Update
-  async updateData(path: string, data: object) {
-    await update(ref(this.db, path), data);
+  async updateData(collection: string, docId: string, data: object) {
+    await this.db.collection(collection).doc(docId).update(data);
   }
 
   // Delete
-  async deleteData(path: string) {
-    await remove(ref(this.db, path));
+  async deleteData(collection: string, docId: string) {
+    await this.db.collection(collection).doc(docId).delete();
   }
 }
