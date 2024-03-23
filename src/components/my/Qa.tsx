@@ -1,13 +1,13 @@
 "use client";
 import { useState } from "react";
-
+import { Button } from "@/components/ui/button";
 interface CardProps {
   question: string;
   answer: string;
   bool: boolean;
 }
 export default function Qa({ question, answer, bool }: CardProps) {
-  const [showAnswer, setShowAnswer] = useState(bool);
+  const [showAnswer, setShowAnswer] = useState<boolean>(false);
 
   return (
     <div className="border-2 border-gray-100 rounded-lg dark:border-gray-700">
