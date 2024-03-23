@@ -24,26 +24,60 @@ export default function Home() {
           <br />
           <br />
           <span className="font-bold text-shadow text-2lx">
-            2023年度基礎班の活動
+            2024年度基礎班の活動
           </span>
+          <br />
+          <br />
+          ◎4月
+          <br />
+          &nbsp;体験会及び交流会
           <br />
           <br />
           ◎5月
           <br />
-          &nbsp;・自己紹介サイトの作成
+          &nbsp;pythonの基礎文法の学習
           <br />
           <br />
           ◎6月
           <br />
-          &nbsp;・アニメーションやギミックの導入の勉強
+          &nbsp;pythonのフレームワークであるFletを学習
           <br />
           <br />
           ◎7月
           <br />
-          &nbsp;・チーム開発準備
+          &nbsp;Fletでの電卓作成
           <br />
           <br />
-          ※2024年度の活動内容とは一部変更となる部分があります。
+          ◎8月
+          <br />
+          &nbsp;夏合宿
+          <br />
+          <br />
+          ◎9月
+          <br />
+          &nbsp;Html,cssの学習
+          <br />
+          <br />
+          ◎10月
+          <br />
+          &nbsp;webページの作成
+          <br />
+          龍祭
+          <br />
+          <br />
+          ◎11月
+          <br />
+          &nbsp;龍祭
+          <br />
+          チーム開発
+          <br />
+          <br />
+          ◎12月
+          <br />
+          &nbsp;外部ハッカソンに出場
+          <br />
+          <br />
+          ※一部変更されるバイがあります
         </div>
       </div>
     </div>

@@ -43,18 +43,14 @@ export default function RootLayout({
               Horizon
             </Link>
           </div>
-          <div className="flex flex-col justify-between w-32 h-24 items-center pr-2">
-            <Link
-              href="/"
-              className="text-black text-base font-black  block mt-2"
-            >
-              ホーム
-            </Link>
+          <div className="flex flex-row justify-between w-50 h-24 items-center pr-2">
             <Link
               href="/kisohann"
-              className="text-black text-base font-black color-blue-500"
+              className="text-black text-base font-black color-blue-500 pr-5"
             >
-              基礎班について
+              基礎班に
+              <br />
+              ついて
             </Link>
             <Link
               href="/Q&A"
