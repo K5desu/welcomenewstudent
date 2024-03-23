@@ -105,7 +105,7 @@ export default function Home() {
           {months.map((month, index) => (
             <div key={index}>
               <Button variant="secondary" onClick={() => toggle(index)}>
-                {month.name}
+                <strong>{month.name}</strong>
               </Button>
               <br />
               {isOpen[index] && (
