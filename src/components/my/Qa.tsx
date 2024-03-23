@@ -78,7 +78,7 @@ export default function Qa({ question, answer, bool, id }: CardProps) {
         )}
       </button>
       {showAnswer && (
-        <div>
+        <div className="flex-none">
           <hr className="border-gray-200 dark:border-gray-700 animate-pulldown" />
 
           <p className="p-8 text-sm text-gray-500 dark:text-gray-1000  animate-pulldown">
