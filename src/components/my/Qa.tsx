@@ -29,9 +29,9 @@ export default function Qa({ question, answer, bool, id }: CardProps) {
   }
 
   return (
-    <div className="border-2 border-gray-100 rounded-lg dark:border-gray-700 flex justify-between">
+    <div className="border-2 border-gray-100 rounded-lg dark:border-gray-700 ">
       <button
-        className="flex items-center justify-between w-full p-8"
+        className="flex items-center justify-between w-full p-8 flex-none"
         onClick={() => {
           setShowAnswer(!showAnswer);
           console.log("showAnswer", showAnswer);
