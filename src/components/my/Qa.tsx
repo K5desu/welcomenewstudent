@@ -86,30 +86,32 @@ export default function Qa({ question, answer, bool, id }: CardProps) {
           </p>
         </div>
       )}
-      <AlertDialog>
-        <AlertDialogTrigger asChild>
-          <Button variant="destructive">削除</Button>
-        </AlertDialogTrigger>
-        <AlertDialogContent>
-          <AlertDialogHeader>
-            <AlertDialogTitle>本当に削除しますか？</AlertDialogTitle>
-            <AlertDialogDescription>
-              削除したら元に戻せません
-            </AlertDialogDescription>
-          </AlertDialogHeader>
-          <AlertDialogFooter>
-            <AlertDialogCancel>Cancel</AlertDialogCancel>
+      {bool && (
+        <AlertDialog>
+          <AlertDialogTrigger asChild>
+            <Button variant="destructive">削除</Button>
+          </AlertDialogTrigger>
+          <AlertDialogContent>
+            <AlertDialogHeader>
+              <AlertDialogTitle>本当に削除しますか？</AlertDialogTitle>
+              <AlertDialogDescription>
+                削除したら元に戻せません
+              </AlertDialogDescription>
+            </AlertDialogHeader>
+            <AlertDialogFooter>
+              <AlertDialogCancel>Cancel</AlertDialogCancel>
 
-            <Button
-              variant="destructive"
-              onClick={async () => await deletes()}
-              className="w-full"
-            >
-              削除
-            </Button>
-          </AlertDialogFooter>
-        </AlertDialogContent>
-      </AlertDialog>
+              <Button
+                variant="destructive"
+                onClick={async () => await deletes()}
+                className="w-full"
+              >
+                削除
+              </Button>
+            </AlertDialogFooter>
+          </AlertDialogContent>
+        </AlertDialog>
+      )}
     </div>
   );
 }
