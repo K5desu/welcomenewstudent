@@ -31,7 +31,7 @@ export default function Qa({ question, answer, bool, id }: CardProps) {
   return (
     <div className="border-2 border-gray-100 rounded-lg dark:border-gray-700 ">
       <button
-        className="flex items-center justify-between w-full p-8 flex-none"
+        className="flex items-center justify-between w-full p-8"
         onClick={() => {
           setShowAnswer(!showAnswer);
           console.log("showAnswer", showAnswer);
@@ -76,41 +76,41 @@ export default function Qa({ question, answer, bool, id }: CardProps) {
             </svg>
           </span>
         )}
+        {bool && (
+          <AlertDialog>
+            <AlertDialogTrigger asChild>
+              <Button variant="destructive">削除</Button>
+            </AlertDialogTrigger>
+            <AlertDialogContent>
+              <AlertDialogHeader>
+                <AlertDialogTitle>本当に削除しますか？</AlertDialogTitle>
+                <AlertDialogDescription>
+                  削除したら元に戻せません
+                </AlertDialogDescription>
+              </AlertDialogHeader>
+              <AlertDialogFooter>
+                <AlertDialogCancel>Cancel</AlertDialogCancel>
+
+                <Button
+                  variant="destructive"
+                  onClick={async () => await deletes()}
+                  className="w-full"
+                >
+                  削除
+                </Button>
+              </AlertDialogFooter>
+            </AlertDialogContent>
+          </AlertDialog>
+        )}
       </button>
       {showAnswer && (
-        <div className="flex-none">
+        <div>
           <hr className="border-gray-200 dark:border-gray-700 animate-pulldown" />
 
           <p className="p-8 text-sm text-gray-500 dark:text-gray-1000  animate-pulldown">
             {answer}
           </p>
         </div>
-      )}
-      {bool && (
-        <AlertDialog>
-          <AlertDialogTrigger asChild>
-            <Button variant="destructive">削除</Button>
-          </AlertDialogTrigger>
-          <AlertDialogContent>
-            <AlertDialogHeader>
-              <AlertDialogTitle>本当に削除しますか？</AlertDialogTitle>
-              <AlertDialogDescription>
-                削除したら元に戻せません
-              </AlertDialogDescription>
-            </AlertDialogHeader>
-            <AlertDialogFooter>
-              <AlertDialogCancel>Cancel</AlertDialogCancel>
-
-              <Button
-                variant="destructive"
-                onClick={async () => await deletes()}
-                className="w-full"
-              >
-                削除
-              </Button>
-            </AlertDialogFooter>
-          </AlertDialogContent>
-        </AlertDialog>
       )}
     </div>
   );
