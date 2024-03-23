@@ -46,7 +46,7 @@ export default function RootLayout({
           <div className="flex flex-row justify-between w-50 h-24 items-center pr-2">
             <Link
               href="/kisohann"
-              className="text-black text-base font-black color-blue-500 pr-5"
+              className="text-black text-base text-center font-black color-blue-500 pr-4"
             >
               基礎班に
               <br />
