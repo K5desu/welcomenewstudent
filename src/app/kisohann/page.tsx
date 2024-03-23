@@ -104,7 +104,10 @@ export default function Home() {
         <div className="text-left">
           {months.map((month, index) => (
             <div key={index}>
-              <Button onClick={() => toggle(index)}>{month.name}</Button>
+              <Button variant="secondary" onClick={() => toggle(index)}>
+                {month.name}
+              </Button>
+              <br />
               {isOpen[index] && (
                 <ul>
                   {month.events.map((event, i) => (
