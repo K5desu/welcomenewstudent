@@ -62,7 +62,6 @@ export default function Home() {
       )) as FetchDataType[];
       setFetchData(data);
       Alldata.current = data;
-      console.log(data);
     }
 
     fetchData();
