@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 export default function Home() {
@@ -47,16 +47,13 @@ export default function Home() {
       events: [
         "龍谷祭-深草",
         "学術文化祭",
-        "第一回チーム開発(11日間開発、3日休息)",
-        "第二回チーム開発(11日間開発、3日休息)",
+        "第一回チーム開発",
+        "第二回チーム開発",
       ],
     },
     {
       name: "12月",
-      events: [
-        "第三回チーム開発(11日間開発、3日休息)",
-        "部内ハッカソン(7日仕様を設計、4日開発)",
-      ],
+      events: ["第三回チーム開発", "部内ハッカソン"],
     },
     {
       name: "1月",
@@ -65,13 +62,6 @@ export default function Home() {
 
     // 他の月のデータも同様に定義...
   ];
-  const [isOpen, setIsOpen] = useState(months.map(() => false));
-
-  const toggle = (index: number) => {
-    const newIsOpen = [...isOpen];
-    newIsOpen[index] = !newIsOpen[index];
-    setIsOpen(newIsOpen);
-  };
 
   return (
     <div>
@@ -103,18 +93,17 @@ export default function Home() {
         <br />
         <div className="text-left">
           {months.map((month, index) => (
-            <div key={index}>
-              <Button variant="secondary" onClick={() => toggle(index)}>
-                <strong>{month.name}</strong>
-              </Button>
+            <div key={index} className="text-left">
+              <strong className="block  h-2 ">{month.name}</strong>
+
               <br />
-              {isOpen[index] && (
-                <ul className="animate-pulldown">
-                  {month.events.map((event, i) => (
-                    <li key={i}>{event}</li>
-                  ))}
-                </ul>
-              )}
+
+              <ul className="pl-4">
+                {month.events.map((event, i) => (
+                  <li key={i}>{event}</li>
+                ))}
+              </ul>
+
               <br />
             </div>
           ))}
