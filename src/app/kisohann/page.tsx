@@ -109,7 +109,7 @@ export default function Home() {
               </Button>
               <br />
               {isOpen[index] && (
-                <ul>
+                <ul className="animate-pulldown">
                   {month.events.map((event, i) => (
                     <li key={i}>{event}</li>
                   ))}
