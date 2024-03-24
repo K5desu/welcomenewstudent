@@ -26,7 +26,6 @@ export function Component() {
     databaseOperations
       .createData(path, data)
       .then(() => {
-        console.log("Data created successfully");
         setQuestion("");
         setAnswer("");
         toast({

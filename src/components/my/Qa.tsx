@@ -34,7 +34,6 @@ export default function Qa({ question, answer, bool, id }: CardProps) {
         className="flex items-center justify-between w-full p-8"
         onClick={() => {
           setShowAnswer(!showAnswer);
-          console.log("showAnswer", showAnswer);
         }}
       >
         <h1 className="font-semibold text-gray-700 dark:text-white text-center">
