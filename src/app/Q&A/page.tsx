@@ -4,7 +4,7 @@ import { useSession } from "next-auth/react";
 import Coming from "@/components/ui/comingsoon";
 import { Button } from "@/components/ui/button";
 import { useRef, useState, useEffect } from "react";
-import Check from "@/components/auth/Check";
+import Check from "@/lib/Check";
 import { Input } from "@/components/ui/input";
 
 import DatabaseOperations from "@/lib/firebase/realtimedatabase/crud";

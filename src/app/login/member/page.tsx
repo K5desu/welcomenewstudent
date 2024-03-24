@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import Logout from "@/components/auth/Logout";
 import { Button } from "@/components/ui/button";
 import { useSession } from "next-auth/react";
-import Check from "@/components/auth/Check";
+import Check from "@/lib/Check";
 import { Component } from "@/components/component/component";
 export default function Home() {
   const [loading, setLoading] = useState(false);
