@@ -21,7 +21,7 @@ import {
 
 export default function Home() {
   const router = useRouter();
-  const { data: session, status } = useSession();
+  const { status } = useSession();
   if (status === "authenticated") {
     router.push("/login/member");
   }

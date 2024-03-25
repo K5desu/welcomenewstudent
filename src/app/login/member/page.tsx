@@ -9,7 +9,7 @@ import { Component } from "@/components/component/component";
 export default function Home() {
   const [loading, setLoading] = useState(false);
 
-  const { data: session, status } = useSession();
+  const { data: session } = useSession();
   const router = useRouter();
   useEffect(() => {
     if (!session) {
