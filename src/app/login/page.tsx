@@ -1,6 +1,6 @@
 "use client";
 import { useSession } from "next-auth/react";
-import Login from "@/components/auth/Login";
+import { signIn } from "next-auth/react";
 import Logout from "@/components/auth/Logout";
 import Image from "next/image";
 
@@ -72,10 +72,12 @@ export default function Home() {
                     </AlertDialogHeader>
                     <AlertDialogFooter>
                       <AlertDialogCancel>Cancel</AlertDialogCancel>
-                      <AlertDialogAction>
-                        <Button>
-                          <Login />
-                        </Button>
+                      <AlertDialogAction
+                        onClick={() =>
+                          signIn("google", {}, { prompt: "login" })
+                        }
+                      >
+                        ログイン
                       </AlertDialogAction>
                     </AlertDialogFooter>
                   </AlertDialogContent>
