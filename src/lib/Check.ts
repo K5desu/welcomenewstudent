@@ -4,6 +4,7 @@ export default function Check(email: string | null | undefined) {
     "y230190@mail.ryukoku.ac.jp",
     "y220023@mail.ryukoku.ac.jp",
     "e220012@mail.ryukoku.ac.jp",
+    "y220050@mail.ryukoku.ac.jp",
   ];
 
   return !allowedEmails.some((allowedEmail) => allowedEmail === email);
