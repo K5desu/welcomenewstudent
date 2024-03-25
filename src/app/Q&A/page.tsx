@@ -1,5 +1,5 @@
 "use client";
-import Qa from "@/components/my/Qa";
+import Qa from "@/components/mycreate/Qa";
 import { useSession } from "next-auth/react";
 import Coming from "@/components/ui/comingsoon";
 import { Button } from "@/components/ui/button";
