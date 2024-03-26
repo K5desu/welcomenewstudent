@@ -22,13 +22,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <>
+    <body className={`${inter.className} antialiased`}>
       <Header />
-      <body className={`${inter.className} antialiased`}>
-        <NextAuthProvider>{children}</NextAuthProvider>
-        <Footer />
-        <Toaster />
-      </body>
-    </>
+      <NextAuthProvider>{children}</NextAuthProvider>
+      <Footer />
+      <Toaster />
+    </body>
   );
 }
