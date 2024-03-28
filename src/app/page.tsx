@@ -1,4 +1,7 @@
 import Image from "next/image";
+import { AlertCircle } from "lucide-react";
+
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 export default function Home() {
   return (
     <div>
@@ -7,7 +10,22 @@ export default function Home() {
           私たちについて
         </div>
 
-        <Image src="/home.png" height={242} width={300} alt="tosi"></Image>
+        <Alert variant="destructive">
+          <AlertCircle className="h-4 w-4" />
+          <AlertTitle>活動時間について</AlertTitle>
+          <AlertDescription>
+            活動時間は毎週火曜の17:00~19:00です。
+            ビラと異なる情報ですがこちらが正しいです。
+          </AlertDescription>
+        </Alert>
+
+        <Image
+          src="/home.png"
+          height={242}
+          width={300}
+          alt="tosi"
+          className="mt-10"
+        ></Image>
         <div className="mx-5 mt-10 text-lg">
           こんにちは！新入生の皆さん！ まずはご入学おめでとうございます🌸🌸
           <br />
