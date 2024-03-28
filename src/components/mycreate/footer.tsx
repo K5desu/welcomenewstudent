@@ -11,7 +11,7 @@ export default function Fotter() {
         </Button>
       </div>
 
-      <div className="mt-5 flex flex-row justify-between items-center w-screen">
+      <div className="mt-5 flex flex-row justify-around items-center w-screen">
         <div className="w-[90px] h-[110px] ml-7 flex justify-center">
           <Link
             href="https://line.me/R/ti/p/@777uabzr?oat_content=url"
