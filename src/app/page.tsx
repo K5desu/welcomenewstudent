@@ -15,7 +15,7 @@ export default function Home() {
           <AlertTitle>活動時間について</AlertTitle>
           <AlertDescription>
             活動時間は毎週火曜の17:00~19:00です。
-            ビラと異なる情報ですがこちらが正しいです。
+            瀬田のビラと異なる情報ですがこちらが正しいです。
           </AlertDescription>
         </Alert>
 
