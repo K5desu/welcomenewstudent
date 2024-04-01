@@ -2,7 +2,7 @@ import "@/app/globals.css"; // import "@/app/ui/global.css"
 
 import { Toaster } from "@/components/ui/toaster";
 import { Inter } from "next/font/google";
-
+import { Analytics } from "@vercel/analytics/react";
 import { Metadata } from "next";
 import NextAuthProvider from "@/providers/NextAuth";
 import Header from "@/components/mycreate/header";
@@ -27,6 +27,7 @@ export default function RootLayout({
       <NextAuthProvider>{children}</NextAuthProvider>
       <Footer />
       <Toaster />
+      <Analytics />
     </body>
   );
 }
