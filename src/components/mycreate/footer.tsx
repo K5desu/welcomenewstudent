@@ -14,12 +14,13 @@ export default function Fotter() {
       <div className="mt-5 flex flex-row justify-around items-center w-screen">
         <div className="w-[90px] h-[110px] ml-7 flex justify-center">
           <Link
-            href="https://line.me/R/ti/p/@777uabzr?oat_content=url"
+            href="
+            https://line.me/ti/g2/QmzbCcmTmWfob0jnvs3HgZIyvKlSxcMyz8Cv1Q?utm_source=invitation&utm_medium=link_copy&utm_campaign=default"
             className="h-[110px] flex flex-col items-center text-blue-500 hover:text-purple-900 active:text-purple-900 visited:text-purple-900 "
           >
-            <h3>[公式LINE]</h3>
+            <h3>[openchat]</h3>
 
-            <Image src="/line.png" alt="Line" width={80} height={80} />
+            <Image src="/line.jpg" alt="Line" width={80} height={80} />
           </Link>
         </div>
         <div className="w-[90px] h-[110px] ">
