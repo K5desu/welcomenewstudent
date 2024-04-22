@@ -3,7 +3,7 @@ import { useSession } from "next-auth/react";
 import { signIn } from "next-auth/react";
 import Logout from "@/components/auth/Logout";
 import Image from "next/image";
-
+import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -22,10 +22,11 @@ import {
 export default function Home() {
   const router = useRouter();
   const { status } = useSession();
-  if (status === "authenticated") {
-    router.push("/login/member");
-  }
-
+  useEffect(() => {
+    if (status === "authenticated") {
+      router.push("/login/member");
+    }
+  }, [status, router]);
   return (
     <>
       <div className="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg dark:bg-gray-800">

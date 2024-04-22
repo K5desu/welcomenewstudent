@@ -15,6 +15,8 @@ export default function Home() {
     if (!session) {
       router.push("/login");
     } else if (session.user && Check(session.user.email)) {
+      console.log(session);
+      console.log(session.user);
       // ログインしていないか、メールアドレスが一致しない場合はリダイレクトする
       router.push("/login/member/logout");
     } else {
