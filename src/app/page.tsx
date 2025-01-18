@@ -1,6 +1,5 @@
-import Image from "next/image";
+import Imag from "next/image";
 import { AlertCircle } from "lucide-react";
-
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 export default function Home() {
   return (
